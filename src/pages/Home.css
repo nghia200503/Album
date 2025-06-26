@@ -1,0 +1,408 @@
+/* Reset và Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Album Container */
+.album-container {
+  position: relative;
+  perspective: 1000px;
+}
+
+.album-book {
+  width: 400px;
+  height: 500px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.album-book.flipping {
+  transform: scale(1.05);
+}
+
+/* Page Styles */
+.page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Cover Page */
+.cover-page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+}
+
+.camera-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  animation: pulse 2s infinite;
+}
+
+.cover-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  border-radius: 16px;
+}
+
+.cover-subtitle {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+/* End Page */
+.end-page {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.end-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.end-content {
+  position: relative;
+  z-index: 2;
+}
+
+.heart-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  color: #ff6b6b;
+  animation: bounce 2s infinite;
+}
+
+.end-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  border-radius: 16px;
+}
+
+.end-subtitle {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+/* Image Page */
+.image-page {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 16px;
+}
+
+.image-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container {
+  height: 80%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.image-info {
+  height: 20%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+  text-align: center;
+}
+
+.image-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.image-description {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.page-counter {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nav-button.prev {
+  left: -60px;
+}
+
+.nav-button.next {
+  right: -60px;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+/* Page Indicators */
+.page-indicators {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.indicator.active {
+  background: #667eea;
+  transform: scale(1.25);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Decorative Elements */
+.decoration {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulse 3s infinite;
+}
+
+.decoration.top-left {
+  top: -24px;
+  left: -24px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+}
+
+.decoration.bottom-right {
+  bottom: -24px;
+  right: -24px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #fd79a8, #6c5ce7);
+}
+
+/* Flip Animation */
+.flip-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: flip-effect 0.6s ease;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Keyframes */
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: scale(1.05); 
+    opacity: 1; 
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { 
+    transform: translateY(0); 
+  }
+  40% { 
+    transform: translateY(-10px); 
+  }
+  60% { 
+    transform: translateY(-5px); 
+  }
+}
+
+@keyframes flip-effect {
+  0% { 
+    transform: translateX(-100%); 
+  }
+  100% { 
+    transform: translateX(100%); 
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .album-book {
+    width: 350px;
+    height: 450px;
+  }
+  
+  .cover-title {
+    font-size: 2rem;
+    padding: 12px 20px;
+  }
+  
+  .end-title {
+    font-size: 1.75rem;
+    padding: 12px 20px;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .camera-icon,
+  .heart-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .album-book {
+    width: 320px;
+    height: 420px;
+  }
+  
+  .image-info {
+    padding: 16px;
+  }
+  
+  .image-title {
+    font-size: 1.125rem;
+  }
+  
+  .cover-title {
+    font-size: 1.75rem;
+  }
+}
