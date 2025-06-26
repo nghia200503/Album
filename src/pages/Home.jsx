@@ -96,9 +96,7 @@ const PhotoAlbum = () => {
             <h3 className="image-title">{image.title}</h3>
             <p className="image-description">{image.description}</p>
           </div>
-          <div className="page-counter">
-            {imageIndex + 1} / {images.length}
-          </div>
+          
         </div>
       </div>
     );
