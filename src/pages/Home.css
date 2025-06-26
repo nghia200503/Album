@@ -363,6 +363,10 @@ body {
     height: 340px;
   }
 
+  .image-title{
+    margin-top: 20px;
+  }
+
   .nav-button.prev {
     left: -50px;
   }
@@ -413,6 +417,7 @@ body {
   }
   .image-title {
     font-size: 1rem;
+    
   }
   .cover-title {
     font-size: 1.1rem;
