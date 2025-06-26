@@ -3,22 +3,22 @@ import "./Home.css";
 
 const images = [
   {
-    url: "../public/anh1.jpg",
+    url: "../anh1.jpg",
     title: "Ảnh ni đẹp nhít",
     description: "iuu"
   },
   {
-    url: "../public/anh2.jpg",
+    url: "../anh2.jpg",
     title: "Ảnh ni cụng xinh", 
     description: "Nỏ bằng ảnh đầu"
   },
   {
-    url: "../public/anh3.jpg",
+    url: "../anh3.jpg",
     title: "Ảnh ni xinh quáa",
     description: "Mà nỏ bằng ảnh đầu"
   },
   {
-    url: "../public/anh4.jpg",
+    url: "../anh4.jpg",
     title: "Ảnh ni đẹp",
     description: "Không bằng ảnh đầu"
   }
